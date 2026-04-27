@@ -93,3 +93,36 @@ from 고객, 도시별요약
 where 고객.도시 = 도시별요약.도시;    
 
 # select 사원번호, 이름, 상사번호, (select d이 
+
+# 점검문제
+# 문제1
+select 부서명
+from 부서
+where 부서번호 = (select 부서번호
+				from 사원
+				where 이름 = '배재용');
+                
+# 문제2
+select *
+from 제품 as p
+where not exists (select *
+                  from 주문세부 as d
+                  where d.제품번호 = p.제품번호);
+                  
+# 실습문제
+# 문제1
+select 제품명
+from 제품
+where 단가 = (select max(단가)
+			from 제품);
+            
+# 문제2
+ select sum(주문수량) as 주문수량합
+ from 주문세부
+ where 제품번호 = (select 제품번호 from 제품
+                where 단가 = (select max(단가) from 제품));
+ 
+# 문제3
+select sum(주문수량) as 주문수량합
+from 주문세부
+where 제품번호 in (select 제품번호 from 제품 where 제품명 like "%아이스크림");
