@@ -184,3 +184,4 @@ create table 평점관리
 ,평가 varchar(2000) not null
 ,등록일 date default(curdate())
 );
+
