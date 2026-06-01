@@ -98,7 +98,8 @@ select 도시
        ,sum(case when 담당자직위 = '회계%' then 1 else 0 end) as '회계'
 from 고객
 group by 도시;
-     
+
+-- 문제1      
 -- create view veiw_상위3고객
 -- as
 -- select 고객번호, 고객회사명, 담당자명, sum() as 주문금액합
@@ -107,3 +108,14 @@ group by 도시;
 -- on 고객.고객번호 = 주문.고객번호
 -- group by 주문금액합
 -- limit 3;  
+
+-- 문제2
+-- create view view_제품명별주문요약
+-- as
+-- select 제품명, 
+		  -- sum() as 주문수량합, 주문금액합
+
+-- 문제3
+
+
+-- 문제4  
